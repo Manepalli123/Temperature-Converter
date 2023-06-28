@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous" />
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="temp2.css">
+</head>
+<body>
+<div class="main">
+    <h2 class="align">Temperature Converter</h2>
+    <br>
+    <br>    
+    <div class="border1">
+    <img src="fc.png" height="250vh" width="200vw" alt="notpresent">
+    <br>
+    <br>
+    <br> 
+    <div class="root d-flex flex-row justify-content-center">
+        <div class="root1">
+    <h3 class="size1">FROM</h3>
+    <br>
+    <select name="s1" id="s1">
+        <option value="Celsius" name="Celsius" class="size">Celsius</option>
+        <option value="Fahrenheit" name="Fahrenheit" class="size">Fahrenheit</option>
+        <option value="Kelvin" name="kelvin" class="size">Kelvin</option>
+        </select>
+        <input type="text" name="name" id="uniqueID" value="value"/>
+        <br>
+       </div>
+       <div class="root2">
+        <h3 class="size1">TO</h3>
+        <br>
+    <select name="s2" id="s2">
+        <option value="Celsius" name="Celsius" class="size">Celsius</option>
+        <option value="Fahrenheit" name="Fahrenheit" class="size">Fahrenheit</option>
+        <option value="Kelvin" name="kelvin" class="size">Kelvin</option>
+        </select>
+       </div>
+       </div>
+       <br>
+       <h2 class="align1">Result : 
+        <span class="op"></span>
+       </h2>
+       <br>
+       <button class="btn btn-warning" onclick="onfunction()">Convert</button>
+      
+
+         <script type="text/javascript">
+            function onfunction(){  
+               selectoption = document.querySelector('#s1');
+               op1 = selectoption.value;
+               var ft=op1;
+               selectoption = document.querySelector('#s2');
+               op2 = selectoption.value;
+               var st=op2;
+               var ans=document.getElementById('uniqueID').value;
+               var output=0;
+               if((ft=="Celsius" && st=="Celsius") || (ft=="Fahrenheit" && st=="Fahrenheit") ||  (ft=="Kelvin" && st=="Kelvin")){
+                alert("Please select PROPERLY!!!");
+            }else if(ft=="Celsius" && st=="Fahrenheit"){
+                output=(ans*(1.8) + 32);
+               }else if(ft=="Fahrenheit" && st=="Celsius"){
+                output=((ans-32)/1.8);
+               }else if(ft=="Celsius" && st=="Kelvin"){
+                output= Number(Number(ans)+Number(273.15));
+               }else if(ft=="Kelvin" && st=="Celsius"){
+                output= Number(Number(ans)-Number(237.15));
+               }else if(ft=="Fahrenheit" && st=="Kelvin"){
+                output= (1.8)*(ans+459.67);
+               }else if(ft=="Kelvin" && st=="Fahrenheit"){
+                output=(ans-273.15)*1.8 + 32 ;
+               }
+               if(st=="Celsius"){
+                document.querySelector(".op").textContent = output+" C °Degrees";
+               }else if(st=="Fahrenheit"){
+                document.querySelector(".op").textContent = output+" F °Degrees";
+               }else{
+                document.querySelector(".op").textContent = output+" K °Degrees";
+               }
+            }
+
+
+         </script>
+
+</div>
+</div>
+</body>
+</html>
